@@ -1,0 +1,10 @@
+export.cfg
+export_presets.cfg
+
+data_*/
+.import/
+.mono/
+.idea/
+.vscode/
+*.user
+.DS_Store

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/DayBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UIBackground.cs" type="Script" id=2]
+
+[node name="UIBackground" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ParallaxLayer" parent="." index="1"]
+motion_scale = Vector2( 0.2, 1 )
+motion_offset = Vector2( 48, 0 )
+
+[node name="CloudLayer2" parent="ParallaxLayer" index="0"]
+position = Vector2( 512, 279 )
+
+[node name="ParallaxLayer2" parent="." index="2"]
+motion_scale = Vector2( 0.4, 1 )
+motion_offset = Vector2( 36, 0 )
+
+[node name="CloudLayer1" parent="ParallaxLayer2" index="0"]
+position = Vector2( 512, 364 )
+
+[node name="ParallaxLayer3" parent="." index="3"]
+motion_scale = Vector2( 0.6, 1 )
+motion_offset = Vector2( 24, 0 )
+
+[node name="Mountains" parent="ParallaxLayer3" index="0"]
+position = Vector2( 512, 406 )
