@@ -7,7 +7,6 @@ namespace Gboy
         public override void _Ready()
         {
             base._Ready();
-            GetNode("CanvasLayer/VirtualJoystick").Connect("analogic_chage", this, nameof(MoveTest));
             var tilemap = GetNode<TileMap>("TileMap");
             var camera = GetNode<Camera2D>("Player/Camera2D");
             var rect = tilemap.GetUsedRect();
@@ -36,13 +35,6 @@ namespace Gboy
             
             packedScene = ResourceLoader.Load("res://scenes/Coin.tscn") as PackedScene;
             InstanceTiles("coin", packedScene);
-        }
-        
-        public void MoveTest(Vector2 mov)
-        {
-            GD.Print($"MoveTest {mov}");
-            var player = GetNode<Player>("Player");
-            player._velocity = new Vector2(mov.x * 350, player._velocity.y);
         }
 
         public void InstanceTiles(string name, PackedScene packedScene)

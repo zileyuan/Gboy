@@ -10,7 +10,7 @@ namespace Gboy
         private const float Gravity = 2000;
         private float Acceleration => (float)(MaxSpeed / 0.2);
         private float AirAcceleration => (float)(MaxSpeed / 0.05);
-        public Vector2 _velocity = Vector2.Zero;
+        private Vector2 _velocity = Vector2.Zero;
         private bool _isJumping;
 
         public override void _Ready()
