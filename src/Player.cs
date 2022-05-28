@@ -72,7 +72,7 @@ namespace Gboy
             }
         }
 
-        public void SpecJump(bool jumpPressed)
+        public void SpecJump(bool jumpPressed, bool jumpReleased)
         {
             if (!isDead)
             {
@@ -81,7 +81,7 @@ namespace Gboy
                     GetNode<Timer>("JumpRequestTimer").Start();
                 }
 
-                if (!jumpPressed && _velocity.y < -JumpForce / 2)
+                if (jumpReleased && _velocity.y < -JumpForce / 2)
                 {
                     _velocity.y = -JumpForce / 2;
                 }
@@ -91,7 +91,7 @@ namespace Gboy
         public override void _UnhandledInput(InputEvent @event)
         {
             base._UnhandledInput(@event);
-            SpecJump(@event.IsActionPressed("jump"));
+            SpecJump(@event.IsActionPressed("jump"), @event.IsActionReleased("jump"));
         }
 
         public override void _Process(float delta)
