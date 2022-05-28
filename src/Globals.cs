@@ -19,6 +19,7 @@ namespace Gboy
         [Signal]
         public delegate void DirectionChanged(int direction);
 
+
         public void SetCoinPending(int value)
         {
             CoinPending = value;
@@ -57,22 +58,22 @@ namespace Gboy
 
         public bool IsBGMEnabled()
         {
-            return AudioServer.IsBusMute(BGM_IDX);
+            return !AudioServer.IsBusMute(BGM_IDX);
         }
         
         public void SetBGMEnabled(bool value)
         {
-            AudioServer.SetBusMute(BGM_IDX, value);
+            AudioServer.SetBusMute(BGM_IDX, !value);
         }
         
         public bool IsSFXEnabled()
         {
-            return AudioServer.IsBusMute(SFX_IDX);
+            return !AudioServer.IsBusMute(SFX_IDX);
         }
         
         public void SetSFXEnabled(bool value)
         {
-            AudioServer.SetBusMute(SFX_IDX, value);
+            AudioServer.SetBusMute(SFX_IDX, !value);
         }
 
         public void StartGame()

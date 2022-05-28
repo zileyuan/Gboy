@@ -57,8 +57,8 @@ namespace Gboy
 
         public void UpdateButton(Globals globals)
         {
-            GetNode<Button>("UI/Menus/OptionsMenu/BGMButton").Text = "音乐：" + (globals.IsBGMEnabled()?"关":"开");
-            GetNode<Button>("UI/Menus/OptionsMenu/SFXButton").Text = "音效：" + (globals.IsSFXEnabled()?"关":"开");
+            GetNode<Button>("UI/Menus/OptionsMenu/BGMButton").Text = "音乐：" + (globals.IsBGMEnabled()?"开":"关");
+            GetNode<Button>("UI/Menus/OptionsMenu/SFXButton").Text = "音效：" + (globals.IsSFXEnabled()?"开":"关");
         }
 
         

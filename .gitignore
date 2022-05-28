@@ -9,3 +9,4 @@ data_*/
 .vscode/
 *.user
 .DS_Store
+export/
