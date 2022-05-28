@@ -29,12 +29,18 @@ namespace Gboy
             GetNode<Hitbox>("Hitbox").Position = new Vector2(
                 bounds.Position.x + bounds.Size.x / 2,
                 bounds.End.y + tilemap.CellSize.y * 2);
-            
-            var packedScene = ResourceLoader.Load("res://scenes/HUD.tscn") as PackedScene;
-            AddChild(packedScene.Instance());
-            
-            packedScene = ResourceLoader.Load("res://scenes/Coin.tscn") as PackedScene;
+
+            var packedScene = ResourceLoader.Load("res://scenes/Coin.tscn") as PackedScene;
             InstanceTiles("coin", packedScene);
+
+            if (OS.HasFeature("mobile"))
+            {
+                packedScene = ResourceLoader.Load("res://scenes/Controller.tscn") as PackedScene;
+                AddChild(packedScene.Instance());
+            }
+
+            packedScene = ResourceLoader.Load("res://scenes/HUD.tscn") as PackedScene;
+            AddChild(packedScene.Instance());
         }
 
         public void InstanceTiles(string name, PackedScene packedScene)
@@ -52,17 +58,5 @@ namespace Gboy
                 }
             }
         }
-
-        // public override void _Input(InputEvent @event)
-        // {
-        //     base._Input(@event);
-        //     if (@event.IsActionPressed("ui_cancel"))
-        //     {
-        //         // var busIndex = 2;
-        //         // AudioServer.SetBusMute(busIndex, !AudioServer.IsBusMute(busIndex));
-        //         var globals = GetNode<Globals>("/root/Globals");
-        //         globals.BackTitle();
-        //     }
-        // }
     }
 }

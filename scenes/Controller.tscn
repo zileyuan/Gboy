@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/ui/left_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/left_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/right_normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/right_pressed.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/jump_pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/jump_normal.png" type="Texture" id=6]
+[ext_resource path="res://src/Controller.cs" type="Script" id=7]
+
+[node name="Controller" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
+position = Vector2( 60, 430 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
+position = Vector2( 191, 430 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
+position = Vector2( 844, 430 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 5 )
+action = "jump"

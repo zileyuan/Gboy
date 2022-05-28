@@ -12,25 +12,31 @@ namespace Gboy
         private float AirAcceleration => (float)(MaxSpeed / 0.05);
         private Vector2 _velocity = Vector2.Zero;
         private bool _isJumping;
+        private Globals _globals;
+        private int _directionButtonStatus;
 
         public override void _Ready()
         {
             base._Ready();
-            GD.Print("Player Ready ...");
+            _globals = _globals = GetNode<Globals>("/root/Globals");
+            _globals.Connect(nameof(Globals.DirectionChanged), this, nameof(DirectionChanged));
             GetNode<Timer>("TrailTimer").Connect("timeout", this, nameof(OnTrailTimerTimeout));
             GetNode<Hurtbox>("Hurtbox").Connect(nameof(Hurtbox.Hurt), this, nameof(OnHurt));
             GetNode<Hitbox>("Hitbox").Connect(nameof(Hitbox.Hit), this, nameof(OnHit));
         }
 
+        public void DirectionChanged(int direction)
+        {
+            _directionButtonStatus = direction;
+        }
+
         public async void OnHurt(Hitbox hitbox)
         {
-            // return;
             _velocity.y = -JumpForce;
             var animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
             animationPlayer.Play("death");
             await ToSignal(animationPlayer, "animation_finished");
-            var globals = GetNode<Globals>("/root/Globals");
-            globals.ReloadWorld();
+            _globals.ReloadWorld();
         }
 
         public void OnHit() 
@@ -66,32 +72,45 @@ namespace Gboy
             }
         }
 
-        public override void _UnhandledInput(InputEvent @event)
+        public void SpecJump(bool jumpPressed)
         {
-            base._UnhandledInput(@event);
             if (!isDead)
             {
-                if (@event.IsActionPressed("jump"))
+                if (jumpPressed)
                 {
                     GetNode<Timer>("JumpRequestTimer").Start();
                 }
 
-                if (@event.IsActionReleased("jump") && _velocity.y < -JumpForce / 2)
+                if (!jumpPressed && _velocity.y < -JumpForce / 2)
                 {
                     _velocity.y = -JumpForce / 2;
                 }
             }
         }
 
+        public override void _UnhandledInput(InputEvent @event)
+        {
+            base._UnhandledInput(@event);
+            SpecJump(@event.IsActionPressed("jump"));
+        }
+
         public override void _Process(float delta)
         {
             base._Process(delta);
-            GD.Print($"_Process {delta}");
+            // GD.Print($"_Process {delta}");
             _velocity.y += Gravity * delta;
 
             if (!isDead)
             {
-                var direction = Input.GetActionRawStrength("move_right") - Input.GetActionRawStrength("move_left");
+                float direction;
+                if (_directionButtonStatus != 0)
+                {
+                    direction = _directionButtonStatus;
+                }
+                else 
+                {   
+                    direction = Input.GetActionRawStrength("move_right") - Input.GetActionRawStrength("move_left");
+                }
                 var acc = Acceleration;
                 if (!IsOnFloor())
                 {

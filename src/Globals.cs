@@ -16,6 +16,8 @@ namespace Gboy
 
         [Signal]
         public delegate void CoinsChanged();
+        [Signal]
+        public delegate void DirectionChanged(int direction);
 
         public void SetCoinPending(int value)
         {
