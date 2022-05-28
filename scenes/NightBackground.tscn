@@ -17,7 +17,7 @@ motion_mirroring = Vector2( 1024, 0 )
 
 [node name="CloudLayer1" type="Sprite" parent="ParallaxLayer2"]
 modulate = Color( 0.121569, 0.12549, 0.141176, 1 )
-position = Vector2( 512, 272 )
+position = Vector2( 512, 206 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
@@ -27,5 +27,5 @@ motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Mountains" type="Sprite" parent="ParallaxLayer3"]
 modulate = Color( 0.156863, 0.156863, 0.168627, 1 )
-position = Vector2( 512, 352 )
+position = Vector2( 512, 401 )
 texture = ExtResource( 1 )

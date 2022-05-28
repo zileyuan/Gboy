@@ -11,18 +11,18 @@ motion_scale = Vector2( 0.2, 1 )
 motion_offset = Vector2( 48, 0 )
 
 [node name="CloudLayer2" parent="ParallaxLayer" index="0"]
-position = Vector2( 512, 279 )
+position = Vector2( 512, 261 )
 
 [node name="ParallaxLayer2" parent="." index="2"]
 motion_scale = Vector2( 0.4, 1 )
 motion_offset = Vector2( 36, 0 )
 
 [node name="CloudLayer1" parent="ParallaxLayer2" index="0"]
-position = Vector2( 512, 364 )
+position = Vector2( 512, 415 )
 
 [node name="ParallaxLayer3" parent="." index="3"]
 motion_scale = Vector2( 0.6, 1 )
 motion_offset = Vector2( 24, 0 )
 
 [node name="Mountains" parent="ParallaxLayer3" index="0"]
-position = Vector2( 512, 406 )
+position = Vector2( 512, 584 )

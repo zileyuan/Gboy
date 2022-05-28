@@ -17,7 +17,7 @@ motion_offset = Vector2( 48, -216 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="CloudLayer2" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 512, 211 )
+position = Vector2( 512, 205 )
 texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
@@ -26,7 +26,7 @@ motion_offset = Vector2( 36, -162 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="CloudLayer1" type="Sprite" parent="ParallaxLayer2"]
-position = Vector2( 512, 296 )
+position = Vector2( 514, 319 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
@@ -35,5 +35,5 @@ motion_offset = Vector2( 24, -108 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Mountains" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 512, 338 )
+position = Vector2( 512, 441 )
 texture = ExtResource( 1 )

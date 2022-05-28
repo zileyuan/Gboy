@@ -40,13 +40,13 @@ text = "12345 "
 
 [node name="Control" type="Control" parent="HBoxContainer"]
 margin_left = 205.0
-margin_right = 912.0
+margin_right = 1168.0
 margin_bottom = 48.0
 size_flags_horizontal = 3
 
 [node name="PauseButton" type="TextureButton" parent="HBoxContainer"]
-margin_left = 928.0
-margin_right = 976.0
+margin_left = 1184.0
+margin_right = 1232.0
 margin_bottom = 48.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 2 )

@@ -13,21 +13,21 @@ script = ExtResource( 7 )
 
 [node name="LeftButton" type="TouchScreenButton" parent="."]
 modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
-position = Vector2( 60, 430 )
+position = Vector2( 60, 541 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 2 )
 
 [node name="RightButton" type="TouchScreenButton" parent="."]
 modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
-position = Vector2( 191, 430 )
+position = Vector2( 191, 541 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 4 )
 
 [node name="JumpButton" type="TouchScreenButton" parent="."]
 modulate = Color( 0.490196, 0.447059, 0.447059, 0.45098 )
-position = Vector2( 964, 430 )
+position = Vector2( 1220, 541 )
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 6 )
