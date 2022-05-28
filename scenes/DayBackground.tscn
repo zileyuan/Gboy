@@ -14,26 +14,29 @@ color = Color( 0.811765, 0.937255, 0.988235, 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 48, -216 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 
 [node name="CloudLayer2" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 512, 205 )
+position = Vector2( 640, 205 )
+scale = Vector2( 1.25, 1 )
 texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 0.4 )
 motion_offset = Vector2( 36, -162 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 
 [node name="CloudLayer1" type="Sprite" parent="ParallaxLayer2"]
-position = Vector2( 514, 319 )
+position = Vector2( 641, 319 )
+scale = Vector2( 1.24805, 1 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.6, 0.6 )
 motion_offset = Vector2( 24, -108 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 
 [node name="Mountains" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 512, 441 )
+position = Vector2( 640, 441 )
+scale = Vector2( 1.25, 1 )
 texture = ExtResource( 1 )
