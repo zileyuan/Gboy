@@ -50,7 +50,8 @@ namespace Gboy
 
         public void OnTrailTimerTimeout()
         {
-            if (_velocity.x != 0 && ResourceLoader.Load("res://scenes/Trail.tscn") is PackedScene packedScene)
+            PackedScene packedScene = GD.Load<PackedScene>("res://scenes/Trail.tscn");
+            if (_velocity.x != 0)
             {
                 var trail = packedScene.Instance();
                 GetParent().AddChild(trail);

@@ -30,16 +30,16 @@ namespace Gboy
                 bounds.Position.x + bounds.Size.x / 2,
                 bounds.End.y + tilemap.CellSize.y * 2);
 
-            var packedScene = ResourceLoader.Load("res://scenes/Coin.tscn") as PackedScene;
+            var packedScene = GD.Load<PackedScene>("res://scenes/Coin.tscn");
             InstanceTiles("coin", packedScene);
 
             if (OS.HasFeature("mobile"))
             {
-                packedScene = ResourceLoader.Load("res://scenes/Controller.tscn") as PackedScene;
+                packedScene = GD.Load<PackedScene>("res://scenes/Controller.tscn");
                 AddChild(packedScene.Instance());
             }
 
-            packedScene = ResourceLoader.Load("res://scenes/HUD.tscn") as PackedScene;
+            packedScene = GD.Load<PackedScene>("res://scenes/HUD.tscn");
             AddChild(packedScene.Instance());
         }
 
