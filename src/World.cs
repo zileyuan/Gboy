@@ -33,6 +33,12 @@ namespace Gboy
             var packedScene = GD.Load<PackedScene>("res://scenes/Coin.tscn");
             InstanceTiles("coin", packedScene);
 
+            packedScene = GD.Load<PackedScene>("res://scenes/Fly.tscn");
+            InstanceTiles("fly", packedScene);
+
+            packedScene = GD.Load<PackedScene>("res://scenes/Slime.tscn");
+            InstanceTiles("slime", packedScene);
+
             if (OS.HasFeature("mobile"))
             {
                 packedScene = GD.Load<PackedScene>("res://scenes/Controller.tscn");
@@ -51,7 +57,7 @@ namespace Gboy
             {
                 foreach (Vector2 pos in tilemap.GetUsedCellsById(id))
                 {
-                    var node = packedScene.Instance<Coin>();
+                    var node = packedScene.Instance<Node2D>();
                     tilemap.AddChild(node);
                     node.Position = tilemap.MapToWorld(pos) + tilemap.CellSize / 2;
                     tilemap.SetCellv(pos, -1);
