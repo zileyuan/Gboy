@@ -59,9 +59,7 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 editor_draw_drag_margin = true
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="EnemySpawner" parent="Enemies" instance=ExtResource( 7 )]
+[node name="EnemySpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( -24, 0 )
 enemyScene = ExtResource( 5 )
 interval = 3.0

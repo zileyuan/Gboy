@@ -20,6 +20,7 @@ tile_data = PoolIntArray( -131041, 2, 0, -131038, 2, 0, 65530, 0, 0, 24, 2, 0, 5
 
 [node name="Exit" parent="TileMap" instance=ExtResource( 7 )]
 position = Vector2( 4576, 512 )
+path = "res://scenes/World04.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -60, 450 )
