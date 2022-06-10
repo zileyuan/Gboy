@@ -33,11 +33,17 @@ namespace Gboy
             var packedScene = GD.Load<PackedScene>("res://scenes/Coin.tscn");
             InstanceTiles("coin", packedScene);
 
-            packedScene = GD.Load<PackedScene>("res://scenes/Fly.tscn");
-            InstanceTiles("fly", packedScene);
+            packedScene = GD.Load<PackedScene>("res://scenes/FlyBlack.tscn");
+            InstanceTiles("fly_black", packedScene);
 
-            packedScene = GD.Load<PackedScene>("res://scenes/Slime.tscn");
-            InstanceTiles("slime", packedScene);
+            packedScene = GD.Load<PackedScene>("res://scenes/FlyYellow.tscn");
+            InstanceTiles("fly_yellow", packedScene);
+
+            packedScene = GD.Load<PackedScene>("res://scenes/SlimeGreen.tscn");
+            InstanceTiles("slime_green", packedScene);
+
+            packedScene = GD.Load<PackedScene>("res://scenes/SlimeBlue.tscn");
+            InstanceTiles("slime_blue", packedScene);
 
             if (OS.HasFeature("mobile"))
             {
