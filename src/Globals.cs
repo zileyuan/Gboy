@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace Gboy
+namespace HappySlime
 {
     public class Globals : Node
     {

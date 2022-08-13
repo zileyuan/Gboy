@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Gboy
+namespace HappySlime
 {
     public class EnemySpawner : Position2D
     {
