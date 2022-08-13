@@ -11,7 +11,7 @@ namespace HappySlime
         private float Acceleration => (float)(MaxSpeed / 0.2);
         private float AirAcceleration => (float)(MaxSpeed / 0.05);
         private Vector2 _velocity = Vector2.Zero;
-        private bool _isJumping;
+        private int _isJumping;
         private Globals _globals;
         private int _directionButtonStatus;
 
@@ -120,18 +120,18 @@ namespace HappySlime
 
                 _velocity = _velocity.MoveToward(new Vector2(direction * MaxSpeed, _velocity.y), acc * delta);
 
-                var canJump = IsOnFloor() || GetNode<Timer>("CoyoteTimer").TimeLeft > 0;
+                var canJump = _isJumping < 2 || GetNode<Timer>("CoyoteTimer").TimeLeft > 0;
                 if (canJump && GetNode<Timer>("JumpRequestTimer").TimeLeft > 0)
                 {
                     _velocity.y = -JumpForce;
-                    _isJumping = true;
+                    _isJumping += 1;
                     GetNode<Timer>("JumpRequestTimer").Stop();
                     GetNode<Timer>("CoyoteTimer").Stop();
                     GetNode<AudioStreamPlayer>("JumpSound").Play();
                     TweenScale(new Vector2(1/1.25f, 1.25f));
                 }
 
-                if (_isJumping)
+                if (_isJumping > 0)
                 {
                     GetNode<AnimationPlayer>("AnimationPlayer").Play("jump");
                 }
@@ -153,7 +153,7 @@ namespace HappySlime
             base._PhysicsProcess(delta);
             var wasOnFloor = IsOnFloor();
             var snap = Vector2.Zero;
-            if (!_isJumping)
+            if (_isJumping == 0)
             {
                 snap = Vector2.Down * 16;
             }
@@ -161,13 +161,13 @@ namespace HappySlime
             _velocity = MoveAndSlideWithSnap(_velocity, snap, Vector2.Up);
             if (IsOnFloor())
             {
-                _isJumping = false;
+                _isJumping = 0;
                 if (!wasOnFloor)
                 {
                     TweenScale(new Vector2(1.25f, 1/1.25f));
                 }
             }
-            else if (wasOnFloor && !_isJumping)
+            else if (wasOnFloor && _isJumping < 3)
             {
                 GetNode<Timer>("CoyoteTimer").Start();
             }
